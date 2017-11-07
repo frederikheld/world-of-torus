@@ -1,6 +1,6 @@
 'use strict'
 
-function Board(size_x, size_y) {
+function TorusWorld(size_x, size_y) {
 	var size_x
 	var size_y
 
@@ -12,12 +12,12 @@ function Board(size_x, size_y) {
 	}
 }
 
-Board.prototype.getSizeX = function() {
+TorusWorld.prototype.getSizeX = function() {
 	return this.size_x
 }
 
-Board.prototype.getSizeY = function() {
+TorusWorld.prototype.getSizeY = function() {
 	return this.size_y
 }
 
-module.exports = Board
+module.exports = TorusWorld
