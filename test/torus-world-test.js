@@ -2,11 +2,11 @@
 
 var chai = require('chai')
 var expect = chai.expect
-var TorusWorld = require('./../src/torus-world.js')
+var TorusWorld = require('./../lib/torus-world.js')
 
 describe('TorusWorld', function() {
 
-	it('is initialized correctly with positive values', function() {
+	it('should be initialized correctly with positive values', function() {
 		var size_x = 10
 		var size_y = 20
 
@@ -16,7 +16,7 @@ describe('TorusWorld', function() {
 		expect(torusWorld.getSizeY()).to.equal(size_y)
 	})
 
-	it('throws exception if initialized with value that is not a positive integer', function() {
+	it('should throw an error if initialized with value that is not a positive integer', function() {
 
 		// negative dimensions:
 		var surrogateNegative = function() {
