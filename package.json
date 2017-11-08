@@ -4,13 +4,14 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"test": "mocha test/**-test.js"
+		"test": "nyc --reporter=lcov mocha test/**-test.js"
 	},
 	"author": "Frederik S. Held (kontakt@frederikheld.de)",
 	"license": "GPL-3.0",
 	"devDependencies": {
 		"chai": "^4.1.2",
-		"mocha": "^4.0.1"
+		"mocha": "^4.0.1",
+		"nyc": "^11.3.0"
 	},
 	"providedServices": {
 		"tester": {
