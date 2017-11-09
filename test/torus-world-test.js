@@ -56,15 +56,23 @@ describe('TorusWorld', function() {
 
 	it('allows to put a torling onto a defined tile', function() {
 
-		d.torusWorld.putItem(0, 0, new Torling("Karlheinz"))
+		d.torusWorld.putItem(0, 0, new Torling('Karlheinz'))
 		expect(d.torusWorld.getItem(0, 0) instanceof Torling)
 
-		d.torusWorld.putItem(9, 19, new Torling("Ute"))
+		d.torusWorld.putItem(9, 19, new Torling('Ute'))
 		expect(d.torusWorld.getItem(9, 19) instanceof Torling)
 
 	})
 
 	it('does not allow to put two Torlings with the same name into the TorusWorld', function() {
+
+		d.torusWorld.putItem(0, 0, new Torling('Karlheinz'))
+		d.torusWorld.putItem(1, 0, new Torling('Maik'))
+
+		var surrogateAddNamesake = function() {
+			d.torusWorld.putItem(10, 0, new Torling('Karlheinz'))
+		}
+		expect(surrogateAddNamesake).to.throw(Error)
 
 	})
 
