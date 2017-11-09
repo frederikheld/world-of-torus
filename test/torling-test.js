@@ -45,14 +45,15 @@ describe('Torling', function () {
 		expect(torling.getColor()).to.equal(color2)
 	})
 
-		var color1upper = '#7EF3AC'
-		var color1lower = '7ef3ac'
 	it('should convert all hex color strings to lower case', function () {
 
 		var torling = new Torling("dummy")
 
-		torling.setColor(color1upper)
-		// expect(torling.getColor()).to.equal(color1lower)
+		torling.setColor('#7EF3AC')
+		expect(torling.getColor()).to.equal('#7ef3ac')
+
+		torling.setColor('#a1B3c5')
+		expect(torling.getColor()).to.equal('#a1b3c5')
 	})
 
 })
