@@ -49,12 +49,12 @@ describe('TorusWorld', function() {
 
 	})
 
-	it('should initialize tiles as undefined', function() {
+	it('should initialize all tiles as undefined', function() {
 		expect(d.torusWorld.getItem(0, 0)).to.be.an('undefined')
 		expect(d.torusWorld.getItem(d.size_x - 1, d.size_y - 1)).to.be.an('undefined')
 	})
 
-	it('allows to put a torling onto a defined tile', function() {
+	it('allows to put a torling onto a given tile', function() {
 
 		d.torusWorld.putItem(0, 0, new Torling('Karlheinz'))
 		expect(d.torusWorld.getItem(0, 0) instanceof Torling)
