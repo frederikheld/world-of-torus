@@ -7,7 +7,7 @@ var client_id = 0; // Running number that is assigned to the clients
 var express = require("express");
 var path = require("path");
 var app = express();
-var server = app.listen("4242", function() {
+var server = app.listen("4242", function () {
 	console.log(Date.now() + " [socket.io] LISTENING on port " + "4242");
 });
 var io = require("socket.io").listen(server);
@@ -16,12 +16,12 @@ var io = require("socket.io").listen(server);
 app.use(express.static(path.join(__dirname, "gui")));
 
 // Serve "index.html":
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
 	res.sendFile(path.join(__dirname, "index.html"));
 });
 
 // Communicate with clients:
-io.sockets.on("connection", function(socket) {
+io.sockets.on("connection", function (socket) {
 
 	// Init gui:
 	console.log(Date.now() + " [socket.io] New client has connected.");
@@ -33,7 +33,7 @@ io.sockets.on("connection", function(socket) {
 	client_id++;
 
 	// Listen to events from client:
-	socket.on("user_agent", function(data) {
+	socket.on("user_agent", function (data) {
 		console.log(Date.now() + " [socket.io] RECEIVING \"user agent\" event from client: " + data);
 	});
 
