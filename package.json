@@ -2,7 +2,6 @@
 	"name": "world-of-torus",
 	"version": "1.0.0",
 	"description": "",
-	"main": "lib/index.js",
 	"scripts": {
 		"test": "nyc --reporter=lcov mocha test/**-test.js"
 	},
@@ -13,11 +12,5 @@
 		"mocha": "^4.0.1",
 		"nyc": "^11.3.0"
 	},
-	"providedServices": {
-		"tester": {
-			"versions": {
-				"1.0.0": "provideTester"
-			}
-		}
 	}
 }
