@@ -76,6 +76,4 @@ describe('TorusWorld', function() {
 
 	})
 
-	// TODO: You can't add two torlings with the same name to the torus-world!
-
 })
