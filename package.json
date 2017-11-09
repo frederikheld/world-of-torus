@@ -2,8 +2,10 @@
 	"name": "world-of-torus",
 	"version": "1.0.0",
 	"description": "",
+	"main": "server.js",
 	"scripts": {
-		"test": "nyc --reporter=lcov mocha test/**-test.js"
+		"test": "nyc --reporter=lcov mocha test/**-test.js",
+		"start": "node server.js"
 	},
 	"author": "Frederik S. Held (kontakt@frederikheld.de)",
 	"license": "GPL-3.0",
@@ -12,5 +14,9 @@
 		"mocha": "^4.0.1",
 		"nyc": "^11.3.0"
 	},
+	"dependencies": {
+		"express": "^4.16.2",
+		"serve-static": "^1.13.1",
+		"socket.io": "^2.0.4"
 	}
 }
