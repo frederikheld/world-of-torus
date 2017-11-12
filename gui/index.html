@@ -5,7 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        //
+        #world table {
+            border-spacing: 4px;
+        }
+
+        #world td {
+            width: 20px;
+            height: 20px;
+            background-color: #ccc;
+        }
     </style>
     <title>World of Torus</title>
     <script src="/socket.io/socket.io.js"></script>
@@ -26,15 +34,19 @@
             socket.on("welcome", function(data) {
                 console.log(Date.now() + " [socket.io] RECEIVED \"welcome\" event from server: " + data)
 
+                world_rendered = data.world_rendered
                 my_client_id = data.client_id
                 server_url = window.location.href
 
                 $("#my_client_id").text(my_client_id)
                 $("#server_url").text(server_url)
 
-            });
+                $('#world').empty()
+                $('#world').append(data.world_rendered)
 
-        });
+            })
+
+        })
     </script>
 </head>
 
@@ -42,6 +54,8 @@
     <div class="container">
 
         <p>Hello World!</p>
+
+        <div id="world"></div>
 
         <div class="info">
             <p>my_client_id: <span id="my_client_id"></span></p>
