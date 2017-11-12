@@ -76,4 +76,60 @@ describe('TorusWorld', function () {
 
 	})
 
+	it('can render itself as HTML', function () {
+		var torling_karlheinz = new Torling('Karlheinz')
+		torling_karlheinz.setColor('#ff0000')
+
+		var world = new TorusWorld(1, 2)
+		world.putItem(0, 1, torling_karlheinz)
+
+		var worldAsHTML =
+			'<table>' +
+			'<tr>' +
+			'<td style="background-color: #ff0000">Karlheinz</td>' +
+			'</tr>' +
+			'<tr>' +
+			'<td></td>' +
+			'</tr>' +
+			'</table>'
+
+		expect(world.getSizeX()).to.equal(1)
+		expect(world.getSizeY()).to.equal(2)
+		expect(world.renderHTML()).to.equal(worldAsHTML)
+
+		var torling_martin = new Torling('Martin')
+		torling_martin.setColor('#ffffff')
+
+		var torling_ute = new Torling('Ute')
+		torling_ute.setColor('#cccccc')
+
+		var torling_jens = new Torling('Jens')
+		torling_jens.setColor('#aaffbb')
+
+		var world2 = new TorusWorld(3, 2)
+		world2.putItem(2, 1, torling_martin)
+		world2.putItem(0, 0, torling_ute)
+		world2.putItem(1, 1, torling_jens)
+
+		var world2AsHTML =
+			'<table>' +
+			'<tr>' +
+			'<td></td>' +
+			'<td style="background-color: #aaffbb">Jens</td>' +
+			'<td style="background-color: #ffffff">Martin</td>' +
+			'</tr>' +
+			'<tr>' +
+			'<td style="background-color: #cccccc">Ute</td>' +
+			'<td></td>' +
+			'<td></td>' +
+			'</tr>' +
+			'</table>'
+
+		expect(world2.getSizeX()).to.equal(3)
+		expect(world2.getSizeY()).to.equal(2)
+		expect(world2.renderHTML()).to.equal(world2AsHTML)
+	})
+
+	// TODO: Throws error if pos in addItem is out of bounds
+
 })
