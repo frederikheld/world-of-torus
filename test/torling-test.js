@@ -63,6 +63,7 @@ describe('Torling', function () {
 		expect(torling.getColor()).to.equal('#a1b3c5')
 	})
 
+	// TODO: Functions probably not needed since this should be directly implemented in fight()
 	it('should allow to gain and lose health', function () {
 
 		var torling = new Torling('dummy')
@@ -72,6 +73,49 @@ describe('Torling', function () {
 
 		torling.loseHealth(3)
 		expect(torling.getHealth()).to.equal(13)
+	})
+
+	it('can breed', function () {
+
+		// Rule for breeding:
+		// - For each HP the torling gains another 0.1 HP.
+		// - Round up to next full integer
+
+		// TODO: This rule is bad. But it's a starter at least
+
+		var torling = new Torling('dummy')
+
+		torling.breed()
+		expect(torling.getHealth()).to.equal(2)
+
+		torling.breed()
+		expect(torling.getHealth()).to.equal(3)
+
+		torling.breed()
+		expect(torling.getHealth()).to.equal(4)
+
+		torling.breed()
+		torling.breed()
+		torling.breed()
+		torling.breed()
+		torling.breed()
+		torling.breed()
+		expect(torling.getHealth()).to.equal(10)
+
+		torling.breed()
+		expect(torling.getHealth()).to.equal(11)
+
+		torling.breed()
+		expect(torling.getHealth()).to.equal(13)
+
+		torling.breed()
+		torling.breed()
+		torling.breed()
+		expect(torling.getHealth()).to.equal(19)
+
+		torling.breed()
+		expect(torling.getHealth()).to.equal(21)
+
 	})
 
 })
