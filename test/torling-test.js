@@ -6,21 +6,29 @@ var Torling = require('./../lib/torling.js')
 
 describe('Torling', function () {
 
-	it('should be initialized correctly', function () {
+	it('should be initialized with the given name', function () {
 		var name = "Karlheinz"
-		var healthPoints = 1
-		var colorPattern = '^#([a-f0-9]{3}|[a-f0-9]{6})$'
 
 		var torling = new Torling(name)
 
-		// name is param is stored:
 		expect(torling.getName()).to.equal(name)
+	})
 
-		// standard amount of HP is assigned:
-		expect(torling.getHealth()).to.equal(healthPoints)
+	it('should be initialized with 1 Health Point (HP)', function () {
 
-		// valid hex color string is generated (randomly):
+		var torling = new Torling('dummy')
+
+		expect(torling.getHealth()).to.equal(1)
+	})
+
+	it('should be initialized with a random, but valid, hex color value', function () {
+
+		var colorPattern = '^#([a-f0-9]{3}|[a-f0-9]{6})$'
+
+		var torling = new Torling('dummy')
+
 		expect(torling.getColor()).to.match(new RegExp(colorPattern))
+
 	})
 
 	it('should throw an error if no name is given on initialization', function () {
