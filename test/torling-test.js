@@ -14,7 +14,7 @@ describe('Torling', function () {
 		expect(torling.getName()).to.equal(name)
 	})
 
-	it('should be initialized with 1 Health Point (HP)', function () {
+	it('should be initialized with 1 health point', function () {
 
 		var torling = new Torling('dummy')
 
@@ -22,7 +22,6 @@ describe('Torling', function () {
 	})
 
 	it('should be initialized with a random, but valid, hex color value', function () {
-
 		var colorPattern = '^#([a-f0-9]{3}|[a-f0-9]{6})$'
 
 		var torling = new Torling('dummy')
@@ -62,6 +61,17 @@ describe('Torling', function () {
 
 		torling.setColor('#a1B3c5')
 		expect(torling.getColor()).to.equal('#a1b3c5')
+	})
+
+	it('should allow to gain and lose health', function () {
+
+		var torling = new Torling('dummy')
+
+		torling.gainHealth(15)
+		expect(torling.getHealth()).to.equal(16)
+
+		torling.loseHealth(3)
+		expect(torling.getHealth()).to.equal(13)
 	})
 
 })
