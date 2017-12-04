@@ -75,7 +75,7 @@ describe('Torling', function () {
 		expect(torling.getHealth()).to.equal(13)
 	})
 
-	it('can breed', function () {
+	it('should be able to breed', function () {
 
 		// Rule for breeding:
 		// - For each HP the torling gains another 0.1 HP.
