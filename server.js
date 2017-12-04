@@ -35,6 +35,9 @@ var torling_tina = new Torling("Tina")
 torling_tina.setColor('#ffffcc')
 world.putItem(19, 9, torling_tina)
 
+var torling_rando = new Torling("Rando")
+world.putItem(9, 9, torling_rando)
+
 // Communicate with clients:
 io.sockets.on("connection", function (socket) {
 
